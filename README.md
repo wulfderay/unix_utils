@@ -11,7 +11,7 @@ To use these utilities, you'll need to get them onto your system. Here are a few
 - Remove the storage from your target system, mount it on a more modern system, and copy the utilities over.
 - Gain root access to the target system and use onboard utilities to upload or download the files.
 - If the system lacks SSL support, you can use frogfind.com as an HTTPS to HTTP proxy. For example, you can download `file.sh` like this:
-  wget https://frogfind.com/read.php?a=https://raw.githubusercontent.com/wulfderay/unix_utils/main/file.sh
+  wget http://frogfind.com/read.php?a=https://raw.githubusercontent.com/wulfderay/unix_utils/main/file.sh
   You'll need to remove the minimal HTML from either end of the file with `vi` or another editor.
 
 ## Contents
@@ -19,7 +19,7 @@ To use these utilities, you'll need to get them onto your system. Here are a few
 This repository contains the following utilities:
 
 - `file.sh`: a script that determines the type of a file based on its contents, rather than relying on the file extension. This can be useful when dealing with files that have been mislabeled or modified in some way.
-- `elfiinfo.sh`: a script prints information about elf executables. ***currently broken ***
+- `elfinfo.sh`: a script prints information about elf executables. ***currently broken ***
 - Other utilities to be added in the future.
 
 ## Thanks
