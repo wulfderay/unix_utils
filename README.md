@@ -19,7 +19,9 @@ To use these utilities, you'll need to get them onto your system. Here are a few
 This repository contains the following utilities:
 
 - `file.sh`: a script that determines the type of a file based on its contents, rather than relying on the file extension. This can be useful when dealing with files that have been mislabeled or modified in some way.
-- `elfinfo.sh`: a script prints information about elf executables. ***currently broken ***
+- `lspci.sh`: an lspci replacement script. It uses the information in /sys and an optional pci.ids file to list your pci devices in a human readable form.  
+- `elfinfo.sh`: a script prints information about elf executables. 
+***currently broken ***
 - Other utilities to be added in the future.
 
 ## Thanks
