@@ -6,34 +6,6 @@
 #be used to provide human readable names for the pci devices.
 #if not, at least it will print the list in a relatively readable format.
 
-PCI_IDS_FILE="$1"
-VENDOR_ID="$2"
-
-if [ ! -f "$PCI_IDS_FILE" ]; then
-  echo "pci.ids file not found: $PCI_IDS_FILE"
-  exit 1
-fi
-
-if [ -z "$VENDOR_ID" ]; then
-  echo "Vendor ID not provided"
-  exit 1
-fi
-
-# Print the first occurrence of the vendor ID
-grep -i "^$VENDOR_ID " "$PCI_IDS_FILE"
-
-# Use grep to find subsequent entries for the vendor and print until the next vendor starts
-grep -i -A1000 "^$VENDOR_ID " "$PCI_IDS_FILE" | tail +2 | while IFS= read -r line; do
-  # Print each line until a line starting with another vendor ID is encountered
-  if echo "$line" | grep -q '^[0-9a-fA-F]\{4\} '; then
-    break
-  fi
-  echo "$line"
-done
-
-root@DD-WRT:/mnt/sda# cat lspci.sh
-#!/bin/sh
-
 PCI_PATH="/sys/bus/pci/devices"
 PCI_IDS_FILE=""
 CACHE=""
