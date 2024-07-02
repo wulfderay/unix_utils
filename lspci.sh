@@ -6,6 +6,7 @@
 #be used to provide human readable names for the pci devices.
 #if not, at least it will print the list in a relatively readable format.
 
+
 PCI_PATH="/sys/bus/pci/devices"
 PCI_IDS_FILE=""
 CACHE=""
@@ -39,7 +40,7 @@ map_id() {
     grep_pattern="^\\t\\t$id "
     awk_command='{print substr($0, index($0, $3))}'
   fi
-  result=$(echo "$CACHE" | grep -i "$grep_pattern" | awk "$awk_command" | head -n 1)
+  result=$(echo "$CACHE" | awk "/$grep_pattern/" | awk "$awk_command" | head -n 1)
   [ -n "$result" ] && echo "$result" || echo "Unknown"
 }
 
